@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speakers, DevFest Enugu 2026</title>
+<meta name="description" content="Keynotes, talks and panels at DevFest Enugu 2026. Day 1 in Nsukka and Enugu on December 4, Day 2 in Enugu on December 5.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E1E1E; --paper:#FFFFFF; --cream:#FFFBEF; --sky:#C3ECF6; --blush:#F8D8D8; --mint:#CCF6CF; --butter:#FFE7A5; --mist:#F5F8FF; --fog:#EEEEEE;
+  --blue:#4285F4; --red:#EA4335; --yellow:#F9AB00; --sun:#FDD525; --green:#34A853; --pink:#FF7DAF; --leaf:#1F7A3A;
+  --line:3px; --font:"Google Sans Flex","Google Sans","Product Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --pad:clamp(20px,4vw,56px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;-webkit-text-size-adjust:100%;scroll-padding-top:calc(90px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.5;overflow-x:clip;padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:min(1240px,100% - 2*var(--pad));margin-inline:auto}
+
+/* ---------- reusable pieces ---------- */
+.pill{display:inline-flex;align-items:center;gap:.5em;border:var(--line) solid var(--ink);border-radius:999px;padding:.45em 1.1em;background:var(--paper);font-weight:500;text-decoration:none;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:.6em;border:var(--line) solid var(--ink);border-radius:999px;padding:.8em 1.5em;font-weight:700;text-decoration:none;cursor:pointer;background:var(--paper);box-shadow:0 5px 0 var(--ink);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--ink)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--ink)}
+.btn.go{background:var(--mint)}
+.btn.dark{background:var(--ink);color:var(--paper);box-shadow:0 5px 0 var(--blue)}
+.tag{display:inline-block;border:var(--line) solid var(--ink);border-radius:10px;padding:.25em .7em;font-weight:800;letter-spacing:.01em;text-transform:uppercase;line-height:1.15}
+.tag.b{background:var(--blue);color:#fff}.tag.g{background:var(--green);color:#fff}.tag.y{background:var(--sun)}.tag.r{background:var(--red);color:#fff}.tag.p{background:var(--pink)}
+.head{font-weight:800;font-size:clamp(44px,7vw,108px);line-height:.95;letter-spacing:-.03em;margin:0}
+.lede{font-size:clamp(18px,1.6vw,22px);max-width:56ch;margin:0}
+section{position:relative}
+.sticker-svg{overflow:visible}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:calc(14px + env(safe-area-inset-top,0px)) var(--pad) 14px;display:flex;justify-content:center;pointer-events:none}
+.nav-in{pointer-events:auto;width:min(1240px,100%);display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(255,251,239,.82);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border:var(--line) solid var(--ink);border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 5px 0 var(--ink);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.nav.hide .nav-in{transform:translateY(calc(-100% - 40px))}
+.nav{animation:navIn .9s cubic-bezier(.2,.8,.2,1) .15s both}
+@keyframes navIn{from{translate:0 -140px}to{translate:0 0}}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo svg{height:40px;width:auto}
+.nav-links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:.5em .9em;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px}
+.nav-links a:hover{background:var(--sky)}
+.nav .btn{padding:.6em 1.2em;box-shadow:0 3px 0 var(--ink);font-size:16px}
+.menu-btn{display:none;border:var(--line) solid var(--ink);background:var(--sun);border-radius:999px;padding:.55em 1em;font-weight:700;cursor:pointer}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--sky);display:none;flex-direction:column;justify-content:center;padding:var(--pad);padding-top:calc(var(--pad) + env(safe-area-inset-top,0px))}
+.sheet.open{display:flex}
+.sheet a{font-size:clamp(40px,11vw,72px);font-weight:800;text-decoration:none;line-height:1.1;letter-spacing:-.02em}
+.sheet .close{position:absolute;top:calc(20px + env(safe-area-inset-top,0px));right:var(--pad)}
+@media (max-width:980px){.nav-links{display:none}.menu-btn{display:inline-block}.nav .btn{display:none}}
+
+.nav-links a[aria-current="page"]{background:var(--ink);color:var(--paper)}
+/* ---------- speakers page ---------- */
+.page-head{position:relative;overflow:hidden;padding:calc(150px + env(safe-area-inset-top,0px)) 0 clamp(36px,5vw,56px);isolation:isolate}
+.page-head .head{font-size:clamp(64px,11vw,168px)}
+.page-head .lede{margin-top:20px}
+.page-head .deco{position:absolute;z-index:-1;width:clamp(60px,7vw,110px);height:auto}
+@media (max-width:700px){.page-head .deco{display:none}}
+.filters{position:sticky;top:calc(88px + env(safe-area-inset-top,0px));z-index:20;padding:12px 0 18px;background:linear-gradient(var(--cream) 75%,rgba(255,251,239,0))}
+.filters .wrap{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:4px 2px}
+.filters .wrap::-webkit-scrollbar{display:none}
+.chip{flex:none;border:var(--line) solid var(--ink);border-radius:999px;padding:.5em 1.15em;font-weight:600;font-size:16px;background:var(--paper);cursor:pointer;transition:transform .15s,background .2s,color .2s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.group{padding:clamp(28px,4vw,48px) 0}
+.group[hidden]{display:none}
+.group-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;border-bottom:var(--line) solid var(--ink);padding-bottom:14px;margin-bottom:clamp(22px,3vw,34px)}
+.group-head h2{margin:0;font-size:clamp(30px,3.8vw,52px);letter-spacing:-.03em;line-height:1}
+.group-head p{margin:0;font-size:16px;color:#4a4a4a}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.grid{gap:12px}.sb{padding:12px 12px 14px}.sb .nm{font-size:16px}.sb .ti{font-size:13px}.sb .tk{font-size:13px}.sb .hole{width:48px;height:10px}}
+.item[hidden]{display:none!important}
+.sb{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;background:var(--c,var(--paper));border:var(--line) solid var(--ink);border-radius:20px;padding:16px 16px 18px;box-shadow:0 6px 0 var(--ink);transition:transform .2s ease,box-shadow .2s ease;text-align:left}
+.sb:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 10px 0 var(--ink)}
+.sb:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.sb .hole{width:64px;height:12px;border-radius:99px;border:var(--line) solid var(--ink);background:var(--cream);margin:0 auto 14px}
+.sb .ph{width:64%;aspect-ratio:1;border-radius:50%;border:var(--line) solid var(--ink);margin:0 auto 14px;background:var(--sun);display:grid;place-items:center;font-weight:800;font-size:clamp(30px,3.4vw,46px);overflow:hidden}
+.sb .ph img{width:100%;height:100%;object-fit:cover}
+.sb .nm{font-size:20px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+.sb .ti{font-size:14px;color:#3d3d3d;margin-top:2px}
+.sb .tk{font-size:15px;font-weight:600;line-height:1.3;margin:10px 0 14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sb .meta{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap}
+.mini{display:inline-block;border:2px solid var(--ink);border-radius:999px;padding:.15em .7em;font-size:13px;font-weight:700;background:var(--paper);white-space:nowrap}
+.sb.soon{cursor:default;background:repeating-linear-gradient(-45deg,var(--paper) 0 16px,var(--fog) 16px 32px);box-shadow:0 6px 0 var(--ink)}
+.sb.soon:hover{transform:none}
+.sb.soon .ph{background:var(--paper);font-size:clamp(40px,4.4vw,60px)}
+.sb.soon .nm{text-align:center;font-size:16px;font-weight:700}
+.keys{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+@media (max-width:860px){.keys{grid-template-columns:1fr}}
+.kb{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:clamp(120px,14vw,190px) minmax(0,1fr);gap:clamp(16px,2vw,28px);align-items:center;background:var(--butter);border:var(--line) solid var(--ink);border-radius:24px;padding:clamp(16px,2vw,26px);box-shadow:0 8px 0 var(--ink);transition:transform .2s ease,box-shadow .2s ease}
+.kb:hover{transform:translateY(-4px);box-shadow:0 12px 0 var(--ink)}
+.kb:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.kb .ph{aspect-ratio:1;border-radius:50%;border:var(--line) solid var(--ink);background:var(--paper);display:grid;place-items:center;font-weight:800;font-size:clamp(40px,4.6vw,64px);overflow:hidden}
+.kb .ph img{width:100%;height:100%;object-fit:cover}
+.kb .nm{font-size:clamp(24px,2.6vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:8px 0 4px}
+.kb .ti{font-size:15px;color:#3d3d3d}
+.kb .tk{font-size:16px;font-weight:600;margin:10px 0 0;line-height:1.3}
+.kb.soon{cursor:default;background:repeating-linear-gradient(-45deg,var(--paper) 0 16px,var(--fog) 16px 32px)}
+.kb.soon:hover{transform:none;box-shadow:0 8px 0 var(--ink)}
+.panels{display:grid;gap:clamp(14px,2vw,22px)}
+.panel{background:var(--paper);border:var(--line) solid var(--ink);border-radius:22px;padding:clamp(18px,2.4vw,28px);box-shadow:0 8px 0 var(--ink)}
+.panel.soon{background:repeating-linear-gradient(-45deg,var(--paper) 0 16px,var(--fog) 16px 32px)}
+.panel .top{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.panel h3{margin:12px 0 18px;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.02em;line-height:1.1}
+.people{display:flex;flex-wrap:wrap;gap:12px}
+.person{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;border:var(--line) solid var(--ink);border-radius:999px;padding:6px 18px 6px 6px;background:var(--cream);transition:transform .15s}
+.person:hover{transform:translateY(-2px)}
+.person:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.person.soon{cursor:default;background:var(--paper)}
+.person.soon:hover{transform:none}
+.person .ph{width:52px;height:52px;border-radius:50%;border:var(--line) solid var(--ink);background:var(--sun);display:grid;place-items:center;font-weight:800;overflow:hidden;flex:none}
+.person .ph img{width:100%;height:100%;object-fit:cover}
+.person b{display:block;font-size:16px;line-height:1.2}
+.person .mini{margin-top:3px}
+.mini.mod{background:var(--sun)}.mini.pan{background:var(--pink)}.mini.key{background:var(--red);color:#fff}.mini.spk{background:var(--sky)}
+.reveal{animation:rise .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 50ms)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+dialog.profile{border:var(--line) solid var(--ink);border-radius:26px;padding:0;width:min(760px,92vw);max-height:88vh;background:var(--cream);box-shadow:0 10px 0 var(--ink);color:var(--ink)}
+dialog.profile::backdrop{background:rgba(30,30,30,.6);backdrop-filter:blur(6px)}
+.pf{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:clamp(18px,3vw,32px);padding:clamp(20px,3vw,34px)}
+@media (max-width:640px){.pf{grid-template-columns:1fr}.pf .ph{max-width:180px}}
+.pf .ph{aspect-ratio:1;border-radius:50%;border:var(--line) solid var(--ink);background:var(--sun);display:grid;place-items:center;font-weight:800;font-size:64px;overflow:hidden}
+.pf .ph img{width:100%;height:100%;object-fit:cover}
+.pf h2{margin:6px 0 2px;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.05}
+.pf .ti{color:#3d3d3d}
+.pf .talk{margin:16px 0 0;padding:14px 16px;border:var(--line) solid var(--ink);border-radius:16px;background:var(--paper)}
+.pf .talk small{display:block;font-weight:700;font-size:13px;margin-bottom:2px}
+.pf .talk b{font-size:18px;line-height:1.3}
+.pf .bio{margin:16px 0 0;font-size:16px}
+.pf .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+dialog.profile .x{position:absolute;top:14px;right:14px;padding:.4em .9em;box-shadow:0 3px 0 var(--ink)}
+.cta{margin:clamp(40px,6vw,80px) 0 clamp(80px,10vw,130px);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border:var(--line) solid var(--ink);border-radius:24px;background:var(--mint);padding:clamp(22px,3vw,36px);box-shadow:0 8px 0 var(--ink)}
+.cta h2{margin:0;font-size:clamp(26px,3vw,40px);letter-spacing:-.02em;line-height:1.05}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);color:var(--paper);padding:clamp(80px,10vw,140px) 0 calc(40px + env(safe-area-inset-bottom,0px));overflow:hidden;position:relative}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center}
+.foot h2{font-size:clamp(54px,9vw,140px);line-height:.9;letter-spacing:-.04em;margin:0;font-weight:800}
+.foot .close-brace{height:clamp(220px,34vw,460px);width:auto;transform:scaleX(-1)}
+.foot-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.foot-links .pill{background:transparent;color:var(--paper);border-color:var(--paper)}
+.foot-links .pill:hover{background:var(--paper);color:var(--ink)}
+.socials{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:40px}
+.socials span{font-weight:700;margin-right:6px}
+.socials a{width:52px;height:52px;border-radius:50%;border:2px solid var(--paper);display:grid;place-items:center;color:var(--paper);transition:background .2s,color .2s,transform .2s}
+.socials a:hover{background:var(--sun);color:var(--ink);border-color:var(--sun);transform:translateY(-3px)}
+.socials svg{width:22px;height:22px}
+.fine{margin-top:60px;font-size:14px;opacity:.75;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+@media (max-width:700px){.foot-grid{grid-template-columns:1fr}.foot .close-brace{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .band-track{animation:none}
+}
+</style>
+</head>
+<body>
+<!-- ============ shared shapes (sticker motifs from the 2026 social kit) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="m-hash" viewBox="0 0 100 100">
+      <g fill="none" stroke-linecap="square">
+        <g stroke="#1E1E1E" stroke-width="26"><path d="M37 16V84M63 16V84M16 37H84M16 63H84"/></g>
+        <g stroke="currentColor" stroke-width="18"><path d="M37 16V84M63 16V84M16 37H84M16 63H84"/></g>
+      </g>
+    </symbol>
+    <symbol id="m-x" viewBox="0 0 100 100">
+      <g fill="none" stroke-linecap="round">
+        <path d="M24 24L76 76M76 24L24 76" stroke="#1E1E1E" stroke-width="30"/>
+        <path d="M24 24L76 76M76 24L24 76" stroke="currentColor" stroke-width="22"/>
+      </g>
+    </symbol>
+    <symbol id="m-chev" viewBox="0 0 100 100">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 30L40 50L14 70M86 30L60 50L86 70" stroke="#1E1E1E" stroke-width="26"/>
+        <path d="M14 30L40 50L14 70M86 30L60 50L86 70" stroke="currentColor" stroke-width="18"/>
+      </g>
+    </symbol>
+    <symbol id="m-brace" viewBox="0 0 100 100">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40 14C28 14 28 22 28 32V40C28 46 24 50 16 50C24 50 28 54 28 60V68C28 78 28 86 40 86M60 14C72 14 72 22 72 32V40C72 46 76 50 84 50C76 50 72 54 72 60V68C72 78 72 86 60 86" stroke="#1E1E1E" stroke-width="20"/>
+        <path d="M40 14C28 14 28 22 28 32V40C28 46 24 50 16 50C24 50 28 54 28 60V68C28 78 28 86 40 86M60 14C72 14 72 22 72 32V40C72 46 76 50 84 50C76 50 72 54 72 60V68C72 78 72 86 60 86" stroke="currentColor" stroke-width="12"/>
+      </g>
+    </symbol>
+    <symbol id="m-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="currentColor" stroke="#1E1E1E" stroke-width="5"/></symbol>
+    <symbol id="m-cloud" viewBox="0 0 200 200">
+      <path fill="currentColor" stroke="#1E1E1E" stroke-width="4" d="M100 18c18 0 32 12 36 28 16-6 34 2 40 18 6 16-2 32-16 38 14 8 20 26 12 40-8 16-26 20-40 14-4 16-18 28-34 26-16 0-28-12-32-26-14 8-32 4-40-10s-4-32 10-40c-14-8-20-26-12-40 8-14 26-18 40-12 4-18 18-36 36-36z"/>
+    </symbol>
+    <symbol id="m-bigbrace" viewBox="0 0 120 400">
+      <path d="M104 4H70Q30 4 30 44V160Q30 190 4 196V204Q30 210 30 240V356Q30 396 70 396H104V352H84Q76 352 76 342V240Q76 212 56 200Q76 188 76 160V58Q76 48 84 48H104Z" fill="currentColor" stroke="#1E1E1E" stroke-width="5" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ nav ============ -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html" aria-label="DevFest Enugu 2026 home">
+      <svg viewBox="0 0 330 90" role="img" aria-hidden="true">
+        <use href="#m-bigbrace" x="0" y="2" width="26" height="86" style="color:#F9AB00"/>
+        <text x="34" y="46" font-family="Google Sans Flex, Google Sans, sans-serif" font-weight="700" font-size="46" fill="#1E1E1E" letter-spacing="-1">DevFest</text>
+        <rect x="40" y="56" width="168" height="26" rx="13" fill="#fff" stroke="#1E1E1E" stroke-width="3"/>
+        <text x="124" y="75" text-anchor="middle" font-family="Google Sans Flex, Google Sans, sans-serif" font-weight="500" font-size="17" fill="#1E1E1E">ENUGU</text>
+        <g transform="translate(240 2) scale(-1 1)"><use href="#m-bigbrace" x="0" y="0" width="26" height="86" style="color:#F9AB00"/></g>
+        <rect x="250" y="28" width="74" height="34" rx="17" fill="#FDD525" stroke="#1E1E1E" stroke-width="3"/>
+        <text x="287" y="52" text-anchor="middle" font-family="Google Sans Flex, Google Sans, sans-serif" font-weight="500" font-size="20" fill="#1E1E1E">2026</text>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#tickets">Tickets</a></li>
+      <li><a href="speakers.html" aria-current="page">Speakers</a></li>
+      <li><a href="index.html#where">Venues</a></li>
+      <li><a href="index.html#sponsors">Sponsors</a></li>
+      <li><a href="index.html#badge">Your DP</a></li>
+    </ul>
+    <a class="btn go" href="https://letsdap.com/devfest-enugu-2026" target="_blank" rel="noopener">Get tickets</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sheet">Menu</button>
+  </div>
+</header>
+<nav class="sheet" id="sheet" aria-label="Site">
+  <button class="btn close" id="closeBtn">Close</button>
+  <a href="index.html#tickets">Tickets</a>
+  <a href="speakers.html">Speakers</a>
+  <a href="index.html#where">Venues</a>
+  <a href="index.html#sponsors">Sponsors</a>
+  <a href="index.html#badge">Your DP</a>
+  <a href="https://letsdap.com/devfest-enugu-2026" target="_blank" rel="noopener">Get tickets</a>
+</nav>
+
+<main id="top">
+<header class="page-head" aria-labelledby="h-page">
+  <svg class="deco" viewBox="0 0 100 100" style="right:6%;top:120px;color:var(--pink);transform:rotate(12deg)" aria-hidden="true"><use href="#m-x"/></svg>
+  <svg class="deco" viewBox="0 0 100 100" style="right:16%;top:250px;color:var(--blue);width:clamp(40px,4vw,64px)" aria-hidden="true"><use href="#m-dot"/></svg>
+  <svg class="deco" viewBox="0 0 100 100" style="right:3%;top:300px;color:var(--green);transform:rotate(-10deg)" aria-hidden="true"><use href="#m-hash"/></svg>
+  <div class="wrap">
+    <h1 class="head" id="h-page">Speakers</h1>
+    <p class="lede" id="pageLede">Keynotes, talks and panels across two days and three venues.</p>
+  </div>
+</header>
+
+<nav class="filters" aria-label="Filter speakers">
+  <div class="wrap" id="chips">
+    <button class="chip" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" data-f="keynotes" aria-pressed="false">Keynotes</button>
+    <button class="chip" data-f="day-1-nsukka" aria-pressed="false">Day 1, Nsukka</button>
+    <button class="chip" data-f="day-1-enugu" aria-pressed="false">Day 1, Enugu</button>
+    <button class="chip" data-f="day-2" aria-pressed="false">Day 2, Enugu</button>
+    <button class="chip" data-f="panels" aria-pressed="false">Panels</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="group" id="g-keynotes" aria-labelledby="h-keys">
+    <div class="group-head"><h2 id="h-keys">Keynote speakers</h2><p>Headline sessions across both days</p></div>
+    <div class="keys" id="keys"></div>
+  </section>
+  <section class="group" id="g-1-nsukka" aria-labelledby="h-d1n">
+    <div class="group-head"><h2 id="h-d1n">Day 1 in Nsukka</h2><p>Dec 4, Blockhive Hub, Nsukka</p></div>
+    <div class="grid" id="d1n"></div>
+  </section>
+  <section class="group" id="g-1-enugu" aria-labelledby="h-d1e">
+    <div class="group-head"><h2 id="h-d1e">Day 1 in Enugu</h2><p>Dec 4, Blockchain Hub Africa, Enugu</p></div>
+    <div class="grid" id="d1e"></div>
+  </section>
+  <section class="group" id="g-2-enugu" aria-labelledby="h-d2">
+    <div class="group-head"><h2 id="h-d2">Day 2 in Enugu</h2><p>Dec 5, Hotel Sylvia, Enugu</p></div>
+    <div class="grid" id="d2"></div>
+  </section>
+  <section class="group" id="g-panels" aria-labelledby="h-pan">
+    <div class="group-head"><h2 id="h-pan">Panels</h2><p>Moderators and panelists by session</p></div>
+    <div class="panels" id="panels"></div>
+  </section>
+
+  <div class="cta">
+    <h2>Catch them live in the Coal City.</h2>
+    <a class="btn dark" href="https://letsdap.com/devfest-enugu-2026" target="_blank" rel="noopener">Get your ticket</a>
+  </div>
+</div>
+</main>
+
+<!-- ============ footer: the code block closes ============ -->
+<footer class="foot" aria-labelledby="h-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2 id="h-foot">See you in<br>the Coal City.</h2>
+        <div class="foot-links">
+          <a class="pill" href="https://letsdap.com/devfest-enugu-2026" target="_blank" rel="noopener">Get tickets</a>
+          <a class="pill" href="https://gdg.community.dev/gdg-enugu/" target="_blank" rel="noopener">Join GDG Enugu</a>
+          <a class="pill" href="https://developers.google.com/community-guidelines" target="_blank" rel="noopener">Code of conduct</a>
+          <a class="pill" href="mailto:gdg.enugu042@gmail.com">Contact organizers</a>
+        </div>
+        <div class="socials" id="socials"><span>Follow GDG Enugu</span></div>
+      </div>
+      <svg class="close-brace" viewBox="0 0 120 400" aria-hidden="true" style="color:var(--yellow)"><use href="#m-bigbrace"/></svg>
+    </div>
+    <div class="fine"><span>© 2026 Google Developer Group Enugu. Built by the GDG Enugu community.</span><span>#DevFestEnugu2026</span></div>
+  </div>
+</footer>
+
+<dialog class="profile" id="profile" aria-label="Speaker profile"></dialog>
+
+<script>
+/* SOCIALS: paste each profile link. Remove a line to drop that platform. */
+const SOCIALS = [
+  { name: "Instagram", url: "https://www.instagram.com/gdg.enugu" },
+  { name: "X",         url: "https://x.com/gdgenugu" },
+  { name: "LinkedIn",  url: "https://www.linkedin.com/company/google-developers-group-enugu/" },
+  { name: "YouTube",   url: "https://www.youtube.com/channel/UCQDbxGe0CCKSuhuQEnxj4Nw" },
+];
+
+/* socials */
+(function(){
+  const el = document.getElementById("socials"); if(!el) return;
+  const ICONS = {
+    Instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>',
+    X:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>',
+    LinkedIn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M12 17v-3.5a2.5 2.5 0 0 1 5 0V17M12 10.5V17"/><circle cx="8" cy="7.5" r="1.1" fill="currentColor" stroke="none"/></svg>',
+    YouTube:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg>',
+  };
+  /* Icons show for every platform listed; until a link is pasted in, the icon points nowhere. */
+  el.insertAdjacentHTML("beforeend", SOCIALS.map(s=>`<a href="${s.url||"#"}" ${s.url?'target="_blank" rel="noopener"':'title="Link coming soon"'} aria-label="GDG Enugu on ${s.name}">${ICONS[s.name]||s.name}</a>`).join(""));
+})();
+
+
+/* mobile menu + hide-on-scroll nav */
+const sheet = document.getElementById("sheet"), menuBtn = document.getElementById("menuBtn");
+menuBtn.onclick=()=>{ sheet.classList.add("open"); menuBtn.setAttribute("aria-expanded","true"); document.getElementById("closeBtn").focus(); };
+const closeSheet=()=>{ sheet.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); };
+document.getElementById("closeBtn").onclick=closeSheet;
+sheet.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeSheet));
+let lastY = 0; const nav = document.getElementById("nav");
+addEventListener("scroll",()=>{ const y = scrollY; nav.classList.toggle("hide", y>lastY && y>400); lastY = y; },{passive:true});
+
+
+/* ================================================================
+   SPEAKER DATA (edit here)
+   Each speaker:
+   { id: "ada-obi",                       // unique, lowercase, used in share links
+     name: "Ada Obi",
+     title: "Senior Engineer", company: "Company",
+     photo: "images/ada-obi.jpg",          // square image works best
+     type: "keynote" | "speaker" | "moderator" | "panelist",
+     day: 1 | 2,
+     venue: "nsukka" | "enugu",            // Day 2 is always "enugu"
+     talk: "Talk title",                   // keynotes and speakers
+     panel: "panel-id",                    // moderators and panelists only
+     bio: "Two or three lines.",
+     links: { x: "", linkedin: "", github: "", website: "" } }
+   Until speakers are added, each section shows "revealing soon" badges.
+   ================================================================ */
+const SPEAKERS = [];
+
+/* PANELS: { id: "panel-id", title: "Panel title", day: 1 | 2, venue: "nsukka" | "enugu" } */
+const PANELS = [];
+
+const VENUES = { "1-nsukka": "Blockhive Hub, Nsukka", "1-enugu": "Blockchain Hub Africa, Enugu", "2-enugu": "Hotel Sylvia, Enugu" };
+const DAYS = { 1: "Dec 4, Day 1", 2: "Dec 5, Day 2" };
+const PLACEHOLDERS = { keynotes: 2, perDay: 4, panels: 2, perPanel: 4 };
+
+/* ================================================================ */
+const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const initials = n => n.split(/\s+/).filter(Boolean).map(w=>w[0]).join("").slice(0,2).toUpperCase();
+const photo = s => s.photo ? `<img src="${esc(s.photo)}" alt="" loading="lazy">` : esc(initials(s.name));
+const key = s => `${s.day}-${s.day===2?"enugu":s.venue}`;
+const TONES = ["var(--blush)","var(--sky)","var(--mint)","var(--butter)","var(--mist)"];
+const ROLE = { keynote:["Keynote","key"], speaker:["Speaker","spk"], moderator:["Moderator","mod"], panelist:["Panelist","pan"] };
+const byId = Object.fromEntries(SPEAKERS.map(s=>[s.id,s]));
+
+function speakerCard(s,i){
+  const [r,c] = ROLE[s.type] || ROLE.speaker;
+  return `<button class="sb item" style="--c:${TONES[i%TONES.length]}" data-k="${key(s)}" data-id="${esc(s.id)}" aria-label="${esc(s.name)}, view profile">
+    <span class="hole" aria-hidden="true"></span><span class="ph">${photo(s)}</span>
+    <span class="nm">${esc(s.name)}</span><span class="ti">${esc([s.title,s.company].filter(Boolean).join(", "))}</span>
+    <span class="tk">${esc(s.talk)}</span>
+    <span class="meta"><span class="mini ${c}">${r}</span></span></button>`;
+}
+const soonCard = k => `<div class="sb soon item" data-k="${k}" aria-hidden="true"><span class="hole"></span><span class="ph">?</span><span class="nm">Revealing soon</span></div>`;
+
+function keynoteCard(s){
+  return `<button class="kb item" data-k="${key(s)}" data-id="${esc(s.id)}" aria-label="${esc(s.name)}, view profile">
+    <span class="ph">${photo(s)}</span>
+    <span><span class="mini key">Keynote</span> <span class="mini">${esc(DAYS[s.day])}</span>
+    <span class="nm" style="display:block">${esc(s.name)}</span><span class="ti">${esc([s.title,s.company].filter(Boolean).join(", "))}</span>
+    <span class="tk" style="display:block">${esc(s.talk)}</span></span></button>`;
+}
+const soonKey = () => `<div class="kb soon item" data-k="any" aria-hidden="true"><span class="ph">?</span><span><span class="mini key">Keynote</span><span class="nm" style="display:block">Keynote reveal soon</span><span class="ti">Watch our socials for the announcement.</span></span></div>`;
+
+function personChip(s){
+  const [r,c] = ROLE[s.type] || ROLE.panelist;
+  return `<button class="person" data-id="${esc(s.id)}" aria-label="${esc(s.name)}, ${r}, view profile"><span class="ph">${photo(s)}</span><span><b>${esc(s.name)}</b><span class="mini ${c}">${r}</span></span></button>`;
+}
+const soonPerson = r => `<div class="person soon" aria-hidden="true"><span class="ph" style="background:var(--paper)">?</span><span><b>To be announced</b><span class="mini ${r==="Moderator"?"mod":"pan"}">${r}</span></span></div>`;
+
+function render(){
+  const keys = SPEAKERS.filter(s=>s.type==="keynote");
+  document.getElementById("keys").innerHTML = keys.length ? keys.map(keynoteCard).join("") : Array.from({length:PLACEHOLDERS.keynotes},soonKey).join("");
+
+  [["d1n","1-nsukka"],["d1e","1-enugu"],["d2","2-enugu"]].forEach(([el,k])=>{
+    const list = SPEAKERS.filter(s=>s.type==="speaker" && key(s)===k);
+    document.getElementById(el).innerHTML = list.length ? list.map((s,i)=>speakerCard(s,i+SPEAKERS.indexOf(s))).join("") : Array.from({length:PLACEHOLDERS.perDay},()=>soonCard(k)).join("");
+  });
+
+  const pEl = document.getElementById("panels");
+  if (PANELS.length){
+    pEl.innerHTML = PANELS.map(p=>{
+      const k = `${p.day}-${p.day===2?"enugu":p.venue}`;
+      const ppl = SPEAKERS.filter(s=>s.panel===p.id).sort((a,b)=>(a.type==="moderator"?-1:0)-(b.type==="moderator"?-1:0));
+      return `<article class="panel item" data-k="${k}"><div class="top"><span class="mini pan">Panel</span><span class="mini">${esc(DAYS[p.day])}</span><span class="mini">${esc(VENUES[k])}</span></div><h3>${esc(p.title)}</h3><div class="people">${ppl.map(personChip).join("")}</div></article>`;
+    }).join("");
+  } else {
+    pEl.innerHTML = Array.from({length:PLACEHOLDERS.panels},()=>`<article class="panel soon item" data-k="any" aria-hidden="true"><div class="top"><span class="mini pan">Panel</span></div><h3>Panel topic announced soon</h3><div class="people">${soonPerson("Moderator")}${Array.from({length:PLACEHOLDERS.perPanel-1},()=>soonPerson("Panelist")).join("")}</div></article>`).join("");
+  }
+
+  if (!SPEAKERS.length) document.getElementById("pageLede").textContent = "Keynotes, talks and panels across two days and three venues. The lineup drops after the call for proposals closes, so badges appear here one at a time.";
+}
+
+/* ---- filters ---- */
+const GROUPS = { keynotes:"g-keynotes", "1-nsukka":"g-1-nsukka", "1-enugu":"g-1-enugu", "2-enugu":"g-2-enugu", panels:"g-panels" };
+const FILTERS = {
+  all:            { groups:["keynotes","1-nsukka","1-enugu","2-enugu","panels"], k:null },
+  keynotes:       { groups:["keynotes"], k:null },
+  "day-1-nsukka": { groups:["keynotes","1-nsukka","panels"], k:"1-nsukka" },
+  "day-1-enugu":  { groups:["keynotes","1-enugu","panels"], k:"1-enugu" },
+  "day-2":        { groups:["keynotes","2-enugu","panels"], k:"2-enugu" },
+  panels:         { groups:["panels"], k:null },
+};
+function applyFilter(f, push){
+  if (!FILTERS[f]) f = "all";
+  const cfg = FILTERS[f];
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed", String(c.dataset.f===f)));
+  Object.entries(GROUPS).forEach(([g,id])=>{
+    const sec = document.getElementById(id);
+    if (!cfg.groups.includes(g)){ sec.hidden = true; return; }
+    let shown = 0;
+    sec.querySelectorAll(".item").forEach((it,i)=>{
+      const ok = !cfg.k || it.dataset.k===cfg.k;
+      it.hidden = !ok; if (ok){ it.classList.remove("reveal"); void it.offsetWidth; it.style.setProperty("--i", shown); it.classList.add("reveal"); shown++; }
+    });
+    sec.hidden = shown===0;
+  });
+  if (push) history.replaceState(null, "", f==="all" ? location.pathname + location.search : "#"+f);
+}
+document.getElementById("chips").addEventListener("click", e=>{
+  const c = e.target.closest(".chip"); if (!c) return;
+  applyFilter(c.dataset.f, true);
+  const top = document.querySelector(".filters").getBoundingClientRect().top + scrollY - 90;
+  if (scrollY > top) scrollTo({ top, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+});
+
+/* ---- profile dialog ---- */
+const dlg = document.getElementById("profile");
+function openProfile(id){
+  const s = byId[id]; if (!s) return;
+  const [r,c] = ROLE[s.type] || ROLE.speaker;
+  const panel = s.panel && PANELS.find(p=>p.id===s.panel);
+  const L = { x:"X", linkedin:"LinkedIn", github:"GitHub", website:"Website" };
+  const links = Object.entries(s.links||{}).filter(([,u])=>u).map(([k,u])=>`<a class="pill" href="${esc(u)}" target="_blank" rel="noopener">${L[k]||k}</a>`).join("");
+  dlg.innerHTML = `<button class="btn x" type="button" id="pfClose">Close</button><div class="pf"><div class="ph">${photo(s)}</div><div>
+    <span class="mini ${c}">${r}</span> <span class="mini">${esc(DAYS[s.day]||"")}</span> <span class="mini">${esc(VENUES[key(s)]||"")}</span>
+    <h2>${esc(s.name)}</h2><div class="ti">${esc([s.title,s.company].filter(Boolean).join(", "))}</div>
+    ${s.talk||panel ? `<div class="talk"><small>${panel?"Panel":"Talk"}</small><b>${esc(panel?panel.title:s.talk)}</b></div>` : ""}
+    ${s.bio ? `<p class="bio">${esc(s.bio)}</p>` : ""}
+    ${links ? `<div class="links">${links}</div>` : ""}</div></div>`;
+  dlg.querySelector("#pfClose").onclick = ()=>dlg.close();
+  dlg.showModal();
+  const u = new URL(location); u.searchParams.set("s", id); history.replaceState(null, "", u);
+}
+dlg.addEventListener("close", ()=>{ const u = new URL(location); u.searchParams.delete("s"); history.replaceState(null, "", u); });
+dlg.addEventListener("click", e=>{ if (e.target===dlg) dlg.close(); });
+document.addEventListener("click", e=>{ const t = e.target.closest("[data-id]"); if (t && !t.closest("dialog")) openProfile(t.dataset.id); });
+
+render();
+applyFilter(location.hash.slice(1) || "all", false);
+const sp = new URLSearchParams(location.search).get("s"); if (sp) openProfile(sp);
+
+</script>
+</body>
+</html>
